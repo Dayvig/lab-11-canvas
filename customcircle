@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+
+	<canvas id="sketch" width="300" height="300">
+
+	</canvas>
+
+	<script>
+		function draw() {
+		 	var sketch = document.getElementById('sketch');
+      var context = sketch.getContext("2d");
+			var radiusStr = prompt("Enter a radius");
+			var radiusInt = parseInt(radiusStr, 10);
+				while (radiusInt > 150){
+				radiusStr = prompt("Enter a radius smaller than 150");
+				radiusInt = parseInt(radiusStr);
+			}
+			var colorVal = prompt("Enter a color! (Red, Green, Blue)");
+			var colorHex;
+			colorVal = colorVal.toLowerCase();
+			while (color != "red" && colorVal != "green" && colorVal != "blue"){
+				colorVal = prompt("Enter a color! (Red, Green, Blue)");
+				colorVal = colorVal.toLowerCase();
+			}
+			if (colorVal == "red"){
+				colorHex = "#FF1B2B";
+			}
+			else if (colorVal == "green"){
+				colorHex = "#1ED517";
+			}
+			else if (colorVal == "blue"){
+				colorHex = "#2133D6";
+			}
+			else {
+				console.log("YOU FUCKED IT UP");
+			}
+
+			context.fillStyle = colorHex
+			context.beginPath();
+			context.arc(150, 150, radiusInt, 0 , 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+
+
+		}
+
+
+
+
+
+			/*
+          context.fillStyle = "#1F120A";
+          context.fillRect(135, 0, 30, 50);
+      context.fillStyle = "#F2924E";
+      context.beginPath();
+      context.arc(150, 150, 120, 0, 2 * Math.PI, true);
+      context.closePath();
+      context.fill();
+        context.fillStyle = "#FFB977";
+        context.beginPath();
+        context.arc(550, 150, 120, 0.5 * Math.PI , 1.5 * Math.PI, true);
+        context.closePath();
+        context.fill();
+				*/
+		}
+
+	</script>
+
+</body>
+</html>
