@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+
+	<canvas id="sketch" width="600" height="600">
+
+	</canvas>
+
+	<script>
+		function draw() {
+		 	var sketch = document.getElementById('sketch');
+      var context = sketch.getContext("2d");
+
+			context.fillStyle = "#000000";
+			context.fillRect(0, 0, 330, 330);
+
+        for (var r = 0;r<8;r++){
+
+          for (var c = 0; c < 8; c++){
+
+						if (r%2==0){
+							if (c%2==0){
+								context.fillStyle = "#ffffff";
+							}
+							else {
+								context.fillStyle = "#000000";
+							}
+						}
+						else if (c%2==0){
+							context.fillStyle = "#000000";
+						}
+						else {
+							context.fillStyle = "#ffffff";
+						}
+
+						context.fillRect((40*r)+5, (40*c)+5, 40, 40);
+          }
+
+        }
+
+				for (var r = 0;r<8;r++){
+					for (var c = 0;c<8;c++){
+
+						if (r%2==0){
+								if (c%2==0){}
+								else {
+									if (c < 3){
+									context.fillStyle = "#3b38eb";
+									context.beginPath();
+									context.arc((40*r)+25, (40*c)+25, 15, 0, 2 * Math.PI, true);
+									context.closePath();
+									context.fill();
+									}
+									else if (c > 4){
+										context.fillStyle = "#66e653";
+										context.beginPath();
+										context.arc((40*r)+25, (40*c)+25, 15, 0, 2 * Math.PI, true);
+										context.closePath();
+										context.fill();
+									}
+								}
+						}
+						else {
+							if (c%2==0){
+								if (c < 3){
+								context.fillStyle = "#3b38eb";
+								context.beginPath();
+								context.arc((40*r)+25, (40*c)+25, 15, 0, 2 * Math.PI, true);
+								context.closePath();
+								context.fill();
+								}
+								else if (c > 4){
+									context.fillStyle = "#66e653";
+									context.beginPath();
+									context.arc((40*r)+25, (40*c)+25, 15, 0, 2 * Math.PI, true);
+									context.closePath();
+									context.fill();
+								}
+							}
+						}
+				}
+			}
+
+
+
+    }
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+
+	<canvas id="sketch" width="500" height="300">
+
+	</canvas>
+
+	<script>
+		function draw() {
+		 	var sketch = document.getElementById('sketch');
+      var context = sketch.getContext("2d");
+
+			var req = prompt("How many shrimps do you have to eat?")
+			var rows = parseInt(req, 10);
+			while (rows < 0 || rows > sketch.width/60){
+				req = prompt("Seriously, input rows more than 0 and less than "+sketch.width/60);
+				rows = parseInt(req, 10);
+			}
+
+
+					for (var i = 0;i<rows;i++) {
+
+          context.fillStyle = "#5f3f6e";
+          context.beginPath();
+  			  context.arc((60*i)+20, 20, 10, 0, 2 * Math.PI, true);
+  			  context.closePath();
+  			  context.fill();
+
+				}
+
+
+		}
+
+	</script>
+
+</body>
+</html>
